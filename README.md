@@ -2,9 +2,9 @@
 
 Date 2026-06-26 Vimeo archive is completed. 
 
-Filename specification [longage]-[type of pattern]-[pattern]-[sub secion].mp
+*Filename specification* [longage]-[type of pattern]-[pattern]-[sub secion].mp
 examples:
-php-behavioral-COR-close.mp where COR = Chain of Responsibilty
+#php-behavioral-COR#-close.mp where COR = Chain of Responsibilty
 csharp-structural-adapter-swot.mp4
 Language codes.
 cpp = C++, csharp = C#, Java, JavaScrip, PHP, Python
