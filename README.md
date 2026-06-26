@@ -9,15 +9,21 @@ csharp-structural-adapter-swot.mp4
 Language codes.
 cpp = C++, csharp = C#, Java, JavaScrip, PHP, Python
 
-**Category names**
-What/Why difinition
-UML/ORM: Unified Modeling Language / ORM Object-Relational Map
+**Design Pattern Types**
+
+Creational
+Structural
+Behavioral
+
 
 **Pattern names** (factory, AF, COR, etc.).
 ie Abstact Factory = AF
 Chain of resonsibity =COR
 Factory Method = Factory
 
+
 **Segment names** (open, why, uml, code, mid, swot, close, full).
+What/Why difinition
+UML/ORM: Unified Modeling Language / ORM Object-Relational Map
 
 **Version suffixes** (-v2, -v3, ...).
