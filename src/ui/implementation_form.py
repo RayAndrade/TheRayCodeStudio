@@ -169,8 +169,9 @@ class ImplementationForm(QMainWindow):
         #
         button_layout = QHBoxLayout()
 
-        self.new_button = QPushButton("New")
+        self.new_button = QPushButton("Add")
         self.save_button = QPushButton("Save")
+        self.save_button.setText("Add")
         self.search_button = QPushButton("Search")
         self.delete_button = QPushButton("Delete")
         self.exit_button = QPushButton("Exit")
@@ -272,6 +273,67 @@ class ImplementationForm(QMainWindow):
             QMessageBox.critical(
                 self,
                 "Database Error",
+                str(error)
+            )
+
+    def search_records(self):
+        """
+        Search for Implementations matching the
+        selected Language, Category and Pattern.
+        """
+
+        try:
+
+            language_id = self.language_combo.currentData()
+
+            category_id = self.category_combo.currentData()
+
+            pattern_id = self.pattern_combo.currentData()
+
+            rows = self.repository.search(
+                language_id=language_id,
+                category_id=category_id,
+                pattern_id=pattern_id,
+            )
+
+            print()
+            print("=" * 70)
+            print("SEARCH RESULTS")
+            print("=" * 70)
+
+            if len(rows) == 0:
+                print("No matching Implementations found.")
+
+                QMessageBox.information(
+                    self,
+                    "Search",
+                    "No matching Implementations found."
+                )
+
+                return
+
+            print(
+                f"{'ID':<6}"
+                f"{'VER':<6}"
+                f"{'TITLE':<40}"
+                f"{'CREATED'}"
+            )
+
+            print("-" * 70)
+
+            for implementation_id, version, title, created_at in rows:
+                print(
+                    f"{implementation_id:<6}"
+                    f"{version:<6}"
+                    f"{title:<40}"
+                    f"{created_at}"
+                )
+
+        except Exception as error:
+
+            QMessageBox.critical(
+                self,
+                "Search Error",
                 str(error)
             )
 

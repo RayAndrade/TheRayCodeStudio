@@ -84,6 +84,40 @@ class ImplementationRepository:
 
         return cursor.lastrowid
 
+    def search(
+            self,
+            language_id,
+            category_id,
+            pattern_id,
+    ):
+        """
+        Return every Implementation matching the
+        selected Language, Category and Pattern.
+        """
+
+        cursor = self.connection.cursor()
+
+        cursor.execute(
+            """
+            SELECT implementation_id,
+                   version,
+                   title,
+                   created_at
+            FROM Implementation
+            WHERE language_id = ?
+              AND category_id = ?
+              AND pattern_id = ?
+            ORDER BY version
+            """,
+            (
+                language_id,
+                category_id,
+                pattern_id,
+            ),
+        )
+
+        return cursor.fetchall()
+
     def close(self):
         """
         Close the database connection.

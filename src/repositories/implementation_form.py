@@ -1,4 +1,7 @@
-    def save_record(self):
+from PySide6.QtWidgets import QMessageBox
+
+
+def save_record(self):
         """
         Save one Implementation using the values
         entered on the form.
@@ -28,7 +31,7 @@
 
                 return
 
-            self.repository.save(
+            self.implementation_id = self.repository.save(
                 language_id=language_id,
                 category_id=category_id,
                 pattern_id=pattern_id,
@@ -40,7 +43,7 @@
             QMessageBox.information(
                 self,
                 "TRC Studio",
-                "Record saved successfully."
+                f"Record {self.implementation_id} saved successfully."
             )
 
         except Exception as error:
