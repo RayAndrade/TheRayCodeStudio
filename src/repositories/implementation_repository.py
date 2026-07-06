@@ -56,29 +56,10 @@ class ImplementationRepository:
 
         cursor.execute(
             """
-            INSERT INTO Implementation
-            (
-                language_id,
-                category_id,
-                pattern_id,
-                version,
-                title,
-                notes
-            )
-            VALUES
-            (
-                ?, ?, ?, ?, ?, ?
-            )
+            INSERT INTO Implementation  ( language_id, category_id, pattern_id, version, title, notes ) VALUES
+            ( ?, ?, ?, ?, ?, ? )
             """,
-            (
-                language_id,
-                category_id,
-                pattern_id,
-                version,
-                title,
-                notes,
-            ),
-        )
+            ( language_id, category_id, pattern_id, version, title, notes, ), )
 
         self.connection.commit()
 
