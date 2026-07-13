@@ -7,4 +7,5 @@ app = QApplication(sys.argv)
 Widget = Widget()
 Widget.show()
 
-app.exec() # 2:25
+app.exec()
+
